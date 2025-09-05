@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom fonts and design system */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-primary: #F8F7F5;
+  --bg-secondary: #FFFFFF;
+  --text-primary: #2D2D2D;
+  --text-secondary: #666666;
+  --accent-orange: #FF6633;
+  --accent-orange-light: #FF8A66;
+  --border-light: #E5E5E5;
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-orange);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange-light);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 2px;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white bg-orange-500 border-2 border-orange-500 rounded-none transition-all duration-200 hover:bg-orange-600 hover:border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-wide text-orange-500 bg-white border-2 border-orange-500 rounded-none transition-all duration-200 hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-wide text-gray-700 bg-transparent border-2 border-gray-300 rounded-none transition-all duration-200 hover:border-orange-500 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Typography */
+.heading-xl {
+  @apply text-4xl md:text-6xl font-bold uppercase tracking-tight leading-tight;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl font-semibold uppercase tracking-wide leading-tight;
+}
+
+.heading-sm {
+  @apply text-xl md:text-2xl font-semibold uppercase tracking-wide leading-tight;
+}
+
+.text-body {
+  @apply text-base md:text-lg leading-relaxed;
+}
+
+.text-small {
+  @apply text-sm md:text-base leading-relaxed;
+}
+
+/* Grid layouts */
+.grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+.grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.grid-4 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white border border-gray-200 shadow-sm transition-all duration-200 hover:shadow-md;
+}
+
+.card-elevated {
+  @apply bg-white border border-gray-200 shadow-lg transition-all duration-200 hover:shadow-xl;
+}
+
+/* Divider */
+.divider {
+  @apply border-t border-gray-200;
+}
+
+/* Orange accent line */
+.accent-line {
+  @apply h-1 bg-gradient-to-r from-orange-500 to-orange-600;
+}
