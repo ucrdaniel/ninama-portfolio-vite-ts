@@ -1,19 +1,19 @@
+/* Custom fonts and design system */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom fonts and design system */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
-  --bg-primary: #F8F7F5;
+  --bg-primary: #F1F0EA;
   --bg-secondary: #FFFFFF;
-  --text-primary: #2D2D2D;
-  --text-secondary: #666666;
-  --accent-orange: #FF6633;
-  --accent-orange-light: #FF8A66;
-  --border-light: #E5E5E5;
-  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --text-primary: #0E0E0E;
+  --text-secondary: #6B6B6B;
+  --accent-orange: #FF3B00;
+  --accent-orange-light: #FF5C33;
+  --border-light: #0E0E0E;
+  --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -26,6 +26,18 @@ html, body, #root {
   padding: 0;
 }
 
+/* Ensure no scrollbar space is reserved and prevent layout jump */
+html {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-gutter: stable; /* Prevent layout shift */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: var(--bg-primary);
@@ -35,22 +47,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Hide scrollbar completely while maintaining scroll functionality */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-orange);
-  border-radius: 3px;
+  background: transparent;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-orange-light);
+/* For Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Prevent layout jump when hiding scrollbar */
+body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Smooth scrolling */
@@ -66,15 +90,15 @@ html {
 
 /* Button styles */
 .btn-primary {
-  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white bg-orange-500 border-2 border-orange-500 rounded-none transition-all duration-200 hover:bg-orange-600 hover:border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-bold uppercase tracking-wide text-bg bg-accent border-2 border-accent transition-all duration-300 hover:bg-accent hover:text-bg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-wide text-orange-500 bg-white border-2 border-orange-500 rounded-none transition-all duration-200 hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-bold uppercase tracking-wide text-accent bg-transparent border-2 border-accent transition-all duration-300 hover:bg-accent hover:text-bg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
 }
 
 .btn-outline {
-  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-wide text-gray-700 bg-transparent border-2 border-gray-300 rounded-none transition-all duration-200 hover:border-orange-500 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-bold uppercase tracking-wide text-text bg-transparent border-2 border-line transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
 }
 
 /* Section spacing */
@@ -136,10 +160,21 @@ html {
 
 /* Divider */
 .divider {
-  @apply border-t border-gray-200;
+  @apply border-t border-line;
 }
 
-/* Orange accent line */
-.accent-line {
-  @apply h-1 bg-gradient-to-r from-orange-500 to-orange-600;
+/* Scroll progress bar styles are now in ScrollProgress component */
+
+/* Custom utility classes */
+.text-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: #0E0E0E;
+  width: 100%;
+  margin: 4rem 0;
 }

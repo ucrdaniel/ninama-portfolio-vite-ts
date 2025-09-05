@@ -1,1 +1,1 @@
-{"root":["./src/app.test.ts","./src/app.tsx","./src/main.tsx"],"version":"5.9.2"}
+{"root":["./src/app.test.ts","./src/app.tsx","./src/i18n.ts","./src/main.tsx","./src/components/about.tsx","./src/components/cta.tsx","./src/components/faq.tsx","./src/components/footer.tsx","./src/components/header.tsx","./src/components/hero.tsx","./src/components/projects.tsx","./src/components/scrollprogress.tsx"],"version":"5.9.2"}
